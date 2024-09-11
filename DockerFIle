@@ -1,0 +1,22 @@
+# Usa la imagen base de Node.js
+FROM node:18-alpine
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia el archivo de paquetes y los instala
+COPY package*.json ./
+
+RUN npm install
+
+# Copia el resto del código de la aplicación al contenedor
+COPY . .
+
+# Compila la aplicación para producción
+RUN npm run build
+
+# Expone el puerto de la aplicación Next.js (por defecto 3000)
+EXPOSE 3000
+
+# Comando para iniciar la aplicación Next.js
+CMD ["npm", "run", "start"]
