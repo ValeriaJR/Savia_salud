@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.back{
+body{
   background-color: #E8F5F8;
 }
 .custum-file-upload {

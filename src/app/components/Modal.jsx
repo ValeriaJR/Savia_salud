@@ -30,7 +30,7 @@ export default function ModalH({ data, open, setOpen, children }) {
             >
                 <Box sx={style}>
                     <Box id="modal-modal-description" className='sticky top-0 bg-white flex  justify-between p-1'>
-                        <Typography id="modal-modal-title" variant="h6" component="h3" >
+                        <Typography id="modal-modal-title" vari ant="h6" component="h3" >
                             Hospitales que no enviaron el censo: {data.length}
                         </Typography>
                         {data.length != 0 && children}
