@@ -1,22 +1,23 @@
-# Usa la imagen base de Node.js
-FROM node:18-alpine
+# Usa una imagen base de Node.js
+FROM node:18
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia el archivo de paquetes y los instala
+# Copia los archivos de package.json y package-lock.json
 COPY package*.json ./
 
+# Instala las dependencias
 RUN npm install
 
-# Copia el resto del código de la aplicación al contenedor
+# Copia el resto del código
 COPY . .
 
-# Compila la aplicación para producción
+# Construye la aplicación
 RUN npm run build
 
-# Expone el puerto de la aplicación Next.js (por defecto 3000)
+# Expone el puerto 3000
 EXPOSE 3000
 
-# Comando para iniciar la aplicación Next.js
-CMD ["npm", "run", "start"]
+# Comando para iniciar la aplicación
+CMD ["npm", "start"]
